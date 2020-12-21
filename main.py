@@ -42,12 +42,12 @@ async def crear_doc(doc: db_doc.Documento):
     else:
         raise HTTPException(status_code=400, detail="Documento existente")
 
-@app.get("/dependencia/documentos/{id_dep}")
+@app.get("/dependencias/documentos/{id_dep}")
 async def buscarDoc(id_dep:int):
     doc_dep = db_doc.docs_dep(id_dep)
     return doc_dep
 
-@app.get("/dependencia/verificar/{id_dep}")
+@app.get("/dependencias/verificar/{id_dep}")
 async def verificar_id(id_dep:int):   
     ok = db_dep.existe_dep(id_dep) 
     return ok
